@@ -1,0 +1,110 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp17
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            float usdRub = 73.82f;
+            float usdCny = 6.37f;
+            float rubUsd = 0.01f;
+            float rubCny = 0.08f;
+            float cnyUsd = 0.15f;
+            float cnyRub = 11.59f;
+            float usd;
+            float rub;
+            float cny;
+            int numberСurrency;
+            int numberExchange;
+            int quantityMoney;
+            Console.Write("Введите сколько у вас долларов: ");
+            usd = Convert.ToSingle(Console.ReadLine());
+            Console.Write("Введите сколько у вас рублей: ");
+            rub = Convert.ToSingle(Console.ReadLine());
+            Console.Write("Введите сколько у вас юаней: ");
+            cny = Convert.ToSingle(Console.ReadLine());
+            Console.Clear();
+            Console.WriteLine($"1. Доллары - {usd}");
+            Console.WriteLine($"2. Рубли - {rub}");
+            Console.WriteLine($"3. Юани - {cny}");
+            Console.Write("Введите номер валюты которую вы хотели бы получить: ");
+            numberСurrency = Convert.ToInt32(Console.ReadLine());
+            Console.Clear();
+            switch (numberСurrency)
+            {
+                case 1:
+                    Console.WriteLine($"1. Рубли - {rub}");
+                    Console.WriteLine($"2. Юани - {cny}");
+                    Console.WriteLine("Что вы хотите обменять на доллары: ");
+                    numberExchange = Convert.ToInt32(Console.ReadLine());
+                    switch (numberExchange)
+                    {
+                        case 1:
+                            Console.WriteLine("Сколько долларов вы хотите получить: ");
+                            quantityMoney = Convert.ToInt32(Console.ReadLine());
+                            usd += quantityMoney;
+                            rub -= quantityMoney * usdRub;
+                            break;
+                        case 2:
+                            Console.WriteLine("Сколько долларов вы хотите получить: ");
+                            quantityMoney = Convert.ToInt32(Console.ReadLine());
+                            usd += quantityMoney;
+                            rub -= quantityMoney * usdCny;
+                            break;
+                    }
+                    break;
+                case 2:
+                    Console.WriteLine($"1. Доллары - {usd}");
+                    Console.WriteLine($"2. Юани - {cny}");
+                    Console.WriteLine("Что вы хотите обменять на рубли: ");
+                    numberExchange = Convert.ToInt32(Console.ReadLine());
+                    switch (numberExchange)
+                    {
+                        case 1:
+                            Console.WriteLine("Сколько рублей вы хотите получить: ");
+                            quantityMoney = Convert.ToInt32(Console.ReadLine());
+                            usd += quantityMoney;
+                            rub -= quantityMoney * rubUsd;
+                            break;
+                        case 2:
+                            Console.WriteLine("Сколько рублей вы хотите получить: ");
+                            quantityMoney = Convert.ToInt32(Console.ReadLine());
+                            usd += quantityMoney;
+                            rub -= quantityMoney * rubCny;
+                            break;
+                    }
+                    break;
+                case 3:
+                    Console.WriteLine($"1. Доллары - {usd}");
+                    Console.WriteLine($"2. Рубли - {rub}");
+                    Console.WriteLine("Что вы хотите обменять на юани: ");
+                    numberExchange = Convert.ToInt32(Console.ReadLine());
+                    switch (numberExchange)
+                    {
+                        case 1:
+                            Console.WriteLine("Сколько юаней вы хотите получить: ");
+                            quantityMoney = Convert.ToInt32(Console.ReadLine());
+                            usd += quantityMoney;
+                            rub -= quantityMoney * cnyUsd;
+                            break;
+                        case 2:
+                            Console.WriteLine("Сколько юаней вы хотите получить: ");
+                            quantityMoney = Convert.ToInt32(Console.ReadLine());
+                            usd += quantityMoney;
+                            rub -= quantityMoney * cnyRub;
+                            break;
+                    }
+                    break;
+            }
+            Console.Clear();
+            Console.WriteLine($"1. Доллары - {usd}");
+            Console.WriteLine($"2. Рубли - {rub}");
+            Console.WriteLine($"3. Юани - {cny}");
+        }
+    }
+}
