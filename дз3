@@ -14,14 +14,15 @@ namespace ConsoleApp17
             int timeTreatment = 10;
             int timeWait;
             int minute;
-            int chas;
+            int hour;
+            int minuteInHour;
             Console.WriteLine("Вы приходите в поликлинику. Перед вами очередь из старушек.");
             Console.Write("Сколько старушек в очереди: ");
             quantityOldLady = Convert.ToInt32(Console.ReadLine());
             timeWait = timeTreatment * quantityOldLady;
-            chas = timeWait / 60;
-            minute = timeWait % 60;
-            Console.WriteLine($"Вам осталось ждать - {chas} часов {minute} минут.");
+            hour = timeWait / minuteInHour;
+            minute = timeWait % minuteInHour;
+            Console.WriteLine($"Вам осталось ждать - {hour} часов {minute} минут.");
         }
     }
 }
