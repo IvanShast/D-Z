@@ -11,11 +11,11 @@ namespace ConsoleApp17
         static void Main(string[] args)
         {
             int allPictures = 52;
-            int rowPictures = 3;
+            int picturesInRow = 3;
             int allRowFull;
             int remainsPictures;
-            allRowFull = allPictures / rowPictures;
-            remainsPictures = allPictures % rowPictures;
+            allRowFull = allPictures / picturesInRow;
+            remainsPictures = allPictures % picturesInRow;
             Console.WriteLine($"Полностью заполненых строк - {allRowFull}, лишних картинок - {remainsPictures}.");
         }
     }
