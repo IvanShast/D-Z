@@ -1,0 +1,22 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp17
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string finalWord = "exit";
+            string WriteWord = " ";
+            while(finalWord != WriteWord)
+            {
+                Console.Write("Напишите слово: ");
+                WriteWord = Console.ReadLine();
+            }
+        }
+    }
+}
