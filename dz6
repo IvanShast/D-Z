@@ -11,11 +11,12 @@ namespace ConsoleApp17
         static void Main(string[] args)
         {
             string finalWord = "exit";
-            string WriteWord = " ";
-            while(finalWord != WriteWord)
+            string userInput = " ";
+            
+            while (finalWord != userInput)
             {
                 Console.Write("Напишите слово: ");
-                WriteWord = Console.ReadLine();
+                userInput = Console.ReadLine();
             }
         }
     }
