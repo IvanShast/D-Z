@@ -11,9 +11,10 @@ namespace ConsoleApp17
         static void Main(string[] args)
         {
             int end = 99;
-            for (int i = 7; i < end; i += 7)
+            int sequence = 7;
+            for (int firstNumber = 7; firstNumber < end; firstNumber += sequence)
             {
-                Console.WriteLine(i);
+                Console.WriteLine(firstNumber);
             }
         }
     }
