@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp17
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string pasword = "0000";
+            string userInput = " ";
+            int tryCount = 3;
+            for (int i = 0; i < tryCount; i++)
+            {
+                Console.WriteLine("Введите пароль: ");
+                userInput = Console.ReadLine();
+                if(userInput == pasword)
+                {
+                    Console.WriteLine("Верно");
+                    i = tryCount;
+                }
+                else
+                {
+                    Console.WriteLine("Попробуйте ещё раз");
+                }
+            }
+        }
+    }
+}
