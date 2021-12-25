@@ -1,0 +1,60 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp17
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Random rand = new Random();
+            int health = 1000;
+            int healthBoss = 2000;
+            int atackBoss = 100;
+            string spels = " ";
+            int sacrifice = 0;
+            int armor = 0;
+
+            Console.WriteLine("Битва с боссом");
+            
+            while(health >= 0 && healthBoss >= 0)
+            {
+                Console.Write("Введите заклинание: ");
+                spels = Console.ReadLine();
+                switch (spels)
+                {
+                    case "жертва":
+                        sacrifice += 3;
+                        health -= 50;
+                        break;
+                    case "копьё крови":
+                        if(sacrifice > 0)
+                        {
+                            healthBoss -= 200;
+                            sacrifice -= 1;
+                        }
+                        break;
+                    case "щит крови":
+                        if (sacrifice > 0)
+                        {
+                            armor += 20;
+                            sacrifice -= 1;
+                        }
+                        break;
+                    case "ослабление":
+                        if (sacrifice > 0)
+                        {
+                            atackBoss -= 5;
+                            sacrifice -= 1;
+                        }
+                        break;
+                }
+                health -= atackBoss - (atackBoss / 100 * armor);
+                Console.WriteLine($"У вас {health} жизней и {armor} брони и {sacrifice} заклинаний.\n У босса {healthBoss} жизней и {atackBoss} урона.");
+            }
+        }
+    }
+}
