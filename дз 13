@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp17
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[,] array = { { 4, 8, 5, 8 }, { 4, 9, 6, 2 }, { 2, 6, 7, 4 } };
+
+            int sum = 0;
+            int multiplier = 1;
+
+            for (int i = 1; i < 2; i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    sum += array[i, j];
+                }
+                Console.WriteLine(sum);
+            }
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < 1; j++)
+                {
+                    multiplier *= array[i, j];
+                }
+            }
+            Console.WriteLine(multiplier);
+        }
+    }
+}
