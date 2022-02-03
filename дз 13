@@ -15,20 +15,24 @@ namespace ConsoleApp17
             int sum = 0;
             int multiplier = 1;
 
-            for (int i = 1; i < 2; i++)
+            for (int i = 0; i < array.GetLength(0); i++)
             {
                 for (int j = 0; j < array.GetLength(1); j++)
                 {
-                    sum += array[i, j];
+                    Console.Write(array[i,j] + " ");
                 }
-                Console.WriteLine(sum);
+                Console.WriteLine(" ");
             }
+            
+            for (int i = 0; i < array.GetLength(1); i++)
+            {
+                sum += array[1, i];
+            }
+            Console.WriteLine(sum);
+            
             for (int i = 0; i < array.GetLength(0); i++)
             {
-                for (int j = 0; j < 1; j++)
-                {
-                    multiplier *= array[i, j];
-                }
+                multiplier *= array[i, 0];
             }
             Console.WriteLine(multiplier);
         }
