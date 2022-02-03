@@ -1,0 +1,62 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp17
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[,] array= new int[10, 10]{ 
+                {56,678,89,90,34,56,43,768,90,45 },
+                {123,456,87,56,7865,456,76,34,56,89 },
+                {23,54,76,897,345,67,345,87,67,978 },
+                {34,456,6,890,67,34,234,678,4568,786 },
+                {786,54,98,46,678,354,536,67,34,568 },
+                {32,54,1534,86,978,6,345,67,75,345 },
+                {456,456,34,678,798,7609,9807,67,456,678 },
+                {678,798,56,45,7,798,34,567,98,678 },
+                {46,234,5648,436,678,456,67867,456,567,345 },
+                {567,457,354,735,74,345,7567,8345,765,345 } };
+            
+            int maxNumber = 0;
+
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    Console.Write(array[i, j] + " ");
+
+                    if (maxNumber <= array[i, j])
+                    {
+                            maxNumber = array[i, j];
+                    }
+                }
+            }
+            
+            Console.WriteLine("\n\n" + maxNumber + "\n");
+
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    if(maxNumber == array[i,j])
+                    {
+                        array[i, j] = 0;
+                    }
+                }
+            }
+
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    Console.Write(array[i, j] + " ");
+                }
+            }
+        }
+    }
+}
