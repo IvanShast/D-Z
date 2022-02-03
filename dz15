@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp17
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] array = new int[30] { 345, 5, 354, 5, 533, 4543, 5, 6557, 68, 576, 6, 898, 678, 6786, 96, 78678, 67896, 85674, 567, 876, 986, 678, 46, 74567, 8, 67, 85, 757, 8, 65 };
+
+            if(array[0] > array[1])
+            {
+                Console.WriteLine(array[0]);
+            }
+
+            for (int i = 1; i < array.Length - 1; i++)
+            {
+                if(array[i] > array[i- 1])
+                {
+                    if(array[i] > array[i+ 1])
+                    {
+                        Console.WriteLine(array[i]);
+                    }
+                }
+            }
+            if(array[array.Length - 1] > array[array.Length - 2])
+            {
+                Console.WriteLine(array[array.Length - 1]);
+            }
+            
+        }
+    }
+}
