@@ -1,0 +1,54 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp9
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] numbers = new int[1];
+            bool exit = true;
+            int number;
+            int sum = 0;
+            string action;
+
+            while (exit)
+            {
+                int[] newNumbers = new int[numbers.Length + 1];
+                Console.WriteLine("Введите число(для ввода команд введите 00):");
+                number = Convert.ToInt32(Console.ReadLine());
+                for (int i = 0; i < numbers.Length; i++)
+                {
+                    newNumbers[i] = numbers[i];
+                }
+                newNumbers[newNumbers.Length - 1] = number;
+                numbers = newNumbers;
+                
+                if(number == 00)
+                {
+                    action = Console.ReadLine();
+
+                    switch (action)
+                    {
+                        case "sum":
+                            for (int i = 0; i < numbers.Length; i++)
+                            {
+                                sum += numbers[i];
+                            }
+                            Console.WriteLine(sum);
+                            sum = 0;
+                            break;
+                        case "exit":
+                            exit = false;
+                            break;
+                    }
+                }
+                
+            }
+        }
+    }
+}
