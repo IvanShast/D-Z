@@ -10,44 +10,38 @@ namespace ConsoleApp9
     {
         static void Main(string[] args)
         {
-            int[] numbers = new int[1];
-            bool exit = true;
-            int number;
-            int sum = 0;
-            string action;
+            int[] numbers = new int[0];
+            bool function = true;
 
-            while (exit)
+            while (function)
             {
                 int[] newNumbers = new int[numbers.Length + 1];
+                string number;
                 Console.WriteLine("Введите число(для ввода команд введите 00):");
-                number = Convert.ToInt32(Console.ReadLine());
-                for (int i = 0; i < numbers.Length; i++)
-                {
-                    newNumbers[i] = numbers[i];
-                }
-                newNumbers[newNumbers.Length - 1] = number;
-                numbers = newNumbers;
-                
-                if(number == 00)
-                {
-                    action = Console.ReadLine();
+                number = Console.ReadLine();
 
-                    switch (action)
-                    {
-                        case "sum":
-                            for (int i = 0; i < numbers.Length; i++)
-                            {
-                                sum += numbers[i];
-                            }
-                            Console.WriteLine(sum);
-                            sum = 0;
-                            break;
-                        case "exit":
-                            exit = false;
-                            break;
-                    }
+                switch (number)
+                {
+                    case "sum":
+                        int sum = 0;
+                        for (int i = 0; i < numbers.Length; i++)
+                        {
+                            sum += numbers[i];
+                        }
+                        Console.WriteLine(sum);
+                        break;
+                    case "exit":
+                        function = false;
+                        break;
+                    default:
+                        for (int i = 0; i < numbers.Length; i++)
+                        {
+                            newNumbers[i] = numbers[i];
+                        }
+                        newNumbers[newNumbers.Length - 1] = Convert.ToInt32(number);
+                        numbers = newNumbers;
+                        break;
                 }
-                
             }
         }
     }
