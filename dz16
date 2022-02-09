@@ -11,16 +11,16 @@ namespace ConsoleApp9
         static void Main(string[] args)
         {
             int[] numbers = new int[0];
-            bool function = true;
+            bool cycleOn = true;
 
-            while (function)
+            while (cycleOn)
             {
                 int[] newNumbers = new int[numbers.Length + 1];
-                string number;
+                string userInput;
                 Console.WriteLine("Введите число(для ввода команд введите 00):");
-                number = Console.ReadLine();
+                userInput = Console.ReadLine();
 
-                switch (number)
+                switch (userInput)
                 {
                     case "sum":
                         int sum = 0;
@@ -31,14 +31,14 @@ namespace ConsoleApp9
                         Console.WriteLine(sum);
                         break;
                     case "exit":
-                        function = false;
+                        cycleOn = false;
                         break;
                     default:
                         for (int i = 0; i < numbers.Length; i++)
                         {
                             newNumbers[i] = numbers[i];
                         }
-                        newNumbers[newNumbers.Length - 1] = Convert.ToInt32(number);
+                        newNumbers[newNumbers.Length - 1] = Convert.ToInt32(userInput);
                         numbers = newNumbers;
                         break;
                 }
