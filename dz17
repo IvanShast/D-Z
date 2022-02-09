@@ -19,24 +19,24 @@ namespace ConsoleApp9
             {
                 
                 Console.WriteLine("1. Добавить досье\n2. Вывести все досье\n3. Найти досье по фамилии\n4. Удалить досье\n5. Выйти из программы.\n");
-                int userInput = Convert.ToInt32(Console.ReadLine());
+                string userInput = Console.ReadLine();
                 switch (userInput)
                 {
-                    case 1:
+                    case "1":
                         Console.WriteLine("Введите фамилию и должность:");
                         ExtensionArray(ref surname);
                         ExtensionArray(ref post);
                         break;
-                    case 2:
+                    case "2":
                         OutputList( surname,  post);
                         break;
-                    case 3:
+                    case "3":
                         SearchBySurname(surname, post);
                         break;
-                    case 4:
+                    case "4":
                         DelitDossier(surname, post);
                         break;
-                    case 5:
+                    case "5":
                         cycleOn = false;
                         break;
                 }
@@ -55,9 +55,6 @@ namespace ConsoleApp9
             }
             tempArray[tempArray.Length - 1] = meaning;
             array = tempArray;
-
-
-            return array;
         }
 
         static void OutputList(string[] surname, string[] post)
