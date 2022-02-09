@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp9
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int healf = 5, maxHealf = 10;
+            int mana = 6, maxMana = 10;
+            DrowBar(healf, maxHealf, ConsoleColor.Red, 0);
+            DrowBar(mana, maxMana, ConsoleColor.Blue, 1);
+        }
+
+        static void DrowBar (int value, int maxValue, ConsoleColor color, int position)
+        {
+            ConsoleColor defaultColor = Console.BackgroundColor;
+            string bar = "";
+
+            for (int i = 0; i < value; i++)
+            {
+                bar += '#';
+            }
+
+            Console.SetCursorPosition(0, position);
+            Console.Write('[');
+            Console.BackgroundColor = color;
+            Console.Write(bar);
+            Console.BackgroundColor = defaultColor;
+
+            bar = "";
+
+            for (int i = value; i < maxValue; i++)
+            {
+                bar += '_';
+            }
+
+            Console.Write(bar + ']');
+        }
+    }
+}
