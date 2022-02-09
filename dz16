@@ -15,7 +15,6 @@ namespace ConsoleApp9
 
             while (cycleOn)
             {
-                int[] newNumbers = new int[numbers.Length + 1];
                 string userInput;
                 Console.WriteLine("Введите число:");
                 userInput = Console.ReadLine();
@@ -34,6 +33,7 @@ namespace ConsoleApp9
                         cycleOn = false;
                         break;
                     default:
+                        int[] newNumbers = new int[numbers.Length + 1];
                         for (int i = 0; i < numbers.Length; i++)
                         {
                             newNumbers[i] = numbers[i];
