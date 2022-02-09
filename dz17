@@ -1,0 +1,100 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp9
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] surname = new string[0];
+            string[] post = new string[0];
+            bool cycleOn = true;
+
+            while (cycleOn)
+            {
+                
+                Console.WriteLine("1. Добавить досье\n2. Вывести все досье\n3. Найти досье по фамилии\n4. Удалить досье\n5. Выйти из программы.\n");
+                int userInput = Convert.ToInt32(Console.ReadLine());
+                switch (userInput)
+                {
+                    case 1:
+                        Console.WriteLine("Введите фамилию и должность:");
+                        ExtensionArray(ref surname);
+                        ExtensionArray(ref post);
+                        break;
+                    case 2:
+                        OutputList( surname,  post);
+                        break;
+                    case 3:
+                        SearchBySurname(surname, post);
+                        break;
+                    case 4:
+                        DelitDossier(surname, post);
+                        break;
+                    case 5:
+                        cycleOn = false;
+                        break;
+                }
+                Console.Clear();
+            }
+        }
+
+        static string[] ExtensionArray(ref string[] array)
+        {
+            string[] tempArray = new string[array.Length + 1];
+            string meaning = Console.ReadLine();
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                tempArray[i] = array[i];
+            }
+            tempArray[tempArray.Length - 1] = meaning;
+            array = tempArray;
+
+
+            return array;
+        }
+
+        static void OutputList(string[] surname, string[] post)
+        {
+            for (int i = 0; i < surname.Length; i++)
+            {
+                Console.Write(surname[i] + " ");
+                Console.WriteLine(post[i]);
+            }
+            Console.ReadKey();
+        }
+
+        static void SearchBySurname(string[] surname, string[] post)
+        {
+            Console.WriteLine("Введите фамилию:");
+            string surnam = Console.ReadLine();
+            for (int i = 0; i < surname.Length; i++)
+            {
+                if(surnam == surname[i])
+                {
+                    Console.WriteLine(surname[i] + " " + post[i]);
+                }
+            }
+            Console.ReadKey();
+        }
+
+        static void DelitDossier(string[] surname, string[] post)
+        {
+            Console.WriteLine("Введите фамилию:");
+            string surnam = Console.ReadLine();
+            for (int i = 0; i < surname.Length; i++)
+            {
+                if (surnam == surname[i])
+                {
+                    surname[i] = "Удалено";
+                    post[i] = "";
+                }
+            }
+        }
+    }
+}
