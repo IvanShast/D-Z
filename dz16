@@ -17,7 +17,7 @@ namespace ConsoleApp9
             {
                 int[] newNumbers = new int[numbers.Length + 1];
                 string userInput;
-                Console.WriteLine("Введите число(для ввода команд введите 00):");
+                Console.WriteLine("Введите число:");
                 userInput = Console.ReadLine();
 
                 switch (userInput)
