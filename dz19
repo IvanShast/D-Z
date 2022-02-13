@@ -48,9 +48,17 @@ namespace ConsoleApp9
                 {'#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#' }
             };
 
-            int userX = 6, userY = 6;
+            int userPositionX = 6;
+            int userPositionY = 6;
 
-            while (true)
+            DrowMap(map, userPositionX, userPositionY);
+
+        }
+
+        static void DrowMap (char[,] map, int x, int y)
+        {
+            bool cycleOn = true;
+            while (cycleOn)
             {
                 for (int i = 0; i < map.GetLength(0); i++)
                 {
@@ -60,41 +68,49 @@ namespace ConsoleApp9
                     }
                     Console.WriteLine();
                 }
-                
-                Console.SetCursorPosition(userY, userX);
-                Console.Write('@');
 
-                ConsoleKeyInfo charKey = Console.ReadKey();
-
-                switch (charKey.Key)
-                {
-                    case ConsoleKey.UpArrow:
-                        if (map[userX - 1, userY] != '#')
-                        {
-                            userX--;
-                        }
-                        break;
-                    case ConsoleKey.DownArrow:
-                        if (map[userX + 1, userY] != '#')
-                        {
-                            userX++;
-                        }
-                        break;
-                    case ConsoleKey.RightArrow:
-                        if (map[userX, userY + 1] != '#')
-                        {
-                            userY++;
-                        }
-                        break;
-                    case ConsoleKey.LeftArrow:
-                        if (map[userX, userY - 1] != '#')
-                        {
-                            userY--;
-                        }
-                        break;
-                }
+                Character(ref x, ref y, ref map, ref cycleOn);
 
                 Console.Clear();
+            }
+        }
+
+        static void Character (ref int x, ref int y, ref char[,] map, ref bool cycleOn)
+        {
+            Console.SetCursorPosition(y, x);
+            Console.Write('@');
+
+            ConsoleKeyInfo charKey = Console.ReadKey();
+
+            switch (charKey.Key)
+            {
+                case ConsoleKey.UpArrow:
+                    if (map[x - 1, y] != '#')
+                    {
+                        x--;
+                    }
+                    break;
+                case ConsoleKey.DownArrow:
+                    if (map[x + 1, y] != '#')
+                    {
+                        x++;
+                    }
+                    break;
+                case ConsoleKey.RightArrow:
+                    if (map[x, y + 1] != '#')
+                    {
+                        y++;
+                    }
+                    break;
+                case ConsoleKey.LeftArrow:
+                    if (map[x, y - 1] != '#')
+                    {
+                        y--;
+                    }
+                    break;
+                case ConsoleKey.Q:
+                    cycleOn = false;
+                    break;
             }
         }
     }
