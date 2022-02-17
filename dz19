@@ -10,14 +10,27 @@ namespace ConsoleApp9
     {
         static void Main(string[] args)
         {
-            Map();
+            char[,] map;
+            Map(out map);
+            int userPositionX = 6;
+            int userPositionY = 6;
+            
+            bool cycleOn = true;
+            while (cycleOn)
+            {
+                DrawMap(map);
+
+                Character(ref userPositionX, ref userPositionY, ref map);
+
+                Console.Clear();
+            }
         }
-        
-        
-        static void Map ()
+
+
+        static void Map(out char[,] map)
         {
             Console.CursorVisible = false;
-            char[,] map =
+            map = new char[,]
             {
                 {'#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#' },
                 {'#',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','#' },
@@ -47,37 +60,23 @@ namespace ConsoleApp9
                 {'#',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','#' },
                 {'#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#' }
             };
-
-            int userPositionX = 6;
-            int userPositionY = 6;
-
-            DrowMap(map, userPositionX, userPositionY);
-
         }
 
-        static void DrowMap (char[,] map, int x, int y)
+        static void DrawMap(char[,] map)
         {
-            bool cycleOn = true;
-            while (cycleOn)
+            for (int i = 0; i < map.GetLength(0); i++)
             {
-                for (int i = 0; i < map.GetLength(0); i++)
+                for (int j = 0; j < map.GetLength(1); j++)
                 {
-                    for (int j = 0; j < map.GetLength(1); j++)
-                    {
-                        Console.Write(map[i, j]);
-                    }
-                    Console.WriteLine();
+                    Console.Write(map[i, j]);
                 }
-
-                Character(ref x, ref y, ref map, ref cycleOn);
-
-                Console.Clear();
+                Console.WriteLine();
             }
         }
 
-        static void Character (ref int x, ref int y, ref char[,] map, ref bool cycleOn)
+        static void Character(ref int offsetByX, ref int offsetByY, ref char[,] map)
         {
-            Console.SetCursorPosition(y, x);
+            Console.SetCursorPosition(offsetByY, offsetByX);
             Console.Write('@');
 
             ConsoleKeyInfo charKey = Console.ReadKey();
@@ -85,31 +84,28 @@ namespace ConsoleApp9
             switch (charKey.Key)
             {
                 case ConsoleKey.UpArrow:
-                    if (map[x - 1, y] != '#')
+                    if (map[offsetByX - 1, offsetByY] != '#')
                     {
-                        x--;
+                        offsetByX--;
                     }
                     break;
                 case ConsoleKey.DownArrow:
-                    if (map[x + 1, y] != '#')
+                    if (map[offsetByX + 1, offsetByY] != '#')
                     {
-                        x++;
+                        offsetByX++;
                     }
                     break;
                 case ConsoleKey.RightArrow:
-                    if (map[x, y + 1] != '#')
+                    if (map[offsetByX, offsetByY + 1] != '#')
                     {
-                        y++;
+                        offsetByY++;
                     }
                     break;
                 case ConsoleKey.LeftArrow:
-                    if (map[x, y - 1] != '#')
+                    if (map[offsetByX, offsetByY - 1] != '#')
                     {
-                        y--;
+                        offsetByY--;
                     }
-                    break;
-                case ConsoleKey.Q:
-                    cycleOn = false;
                     break;
             }
         }
