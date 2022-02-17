@@ -20,7 +20,7 @@ namespace ConsoleApp9
             {
                 DrawMap(map);
 
-                Character(ref userPositionX, ref userPositionY, ref map);
+                CharacterMovement(ref userPositionX, ref userPositionY, ref map);
 
                 Console.Clear();
             }
@@ -74,7 +74,7 @@ namespace ConsoleApp9
             }
         }
 
-        static void Character(ref int offsetByX, ref int offsetByY, ref char[,] map)
+        static void CharacterMovement(ref int offsetByX, ref int offsetByY, ref char[,] map)
         {
             Console.SetCursorPosition(offsetByY, offsetByX);
             Console.Write('@');
