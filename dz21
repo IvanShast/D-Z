@@ -10,25 +10,25 @@ namespace ConsoleApp9
     {
         static void Main(string[] args)
         {
-            int[] array = new int[10] { 2, 43, 56, 8, 0, 45, 7, 8, 3, 5 };
-            Shuffle(array);
-            foreach( int number in array)
+            int[] numbers = new int[10] { 2, 43, 56, 8, 0, 45, 7, 8, 3, 5 };
+            Shuffle(numbers);
+            foreach( int number in numbers)
             {
                 Console.WriteLine(number);
             }
         }
         
-        public static void Shuffle(int[] array)
+        public static void Shuffle(int[] numbers)
         {
-            Random rand = new Random();
+            Random random = new Random();
 
-            for (int i = array.Length - 1; i >= 1; i--)
+            for (int i = array.Lenght; i > 1; i--)
             {
-                int j = rand.Next(i + 1);
+                int randomNumber = random.Next(i + 1);
 
-                int replacement = array[j];
-                array[j] = array[i];
-                array[i] = replacement;
+                int replacement = numbers[randomNumber];
+                numbers[randomNumber] = numbers[i];
+                numbers[i] = replacement;
             }
         }
     }
