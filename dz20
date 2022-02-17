@@ -11,11 +11,11 @@ namespace ConsoleApp9
         static void Main(string[] args)
         {
             int result;
-            Conversion(out result);
+            ReadIng(out result);
             Console.WriteLine(result);
         }
 
-        static void Conversion(out int result)
+        static void ReadIng(out int result)
         {
             result = 0;
             
