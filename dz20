@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp9
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int result;
+            Conversion(out result);
+            Console.WriteLine(result);
+        }
+
+        static void Conversion(out int result)
+        {
+            result = 0;
+            
+            while(result == 0)
+            {
+                Console.WriteLine("Введите число: ");
+                string convertible = Console.ReadLine();
+                int.TryParse(convertible, out result);
+            }
+        }
+    }
+}
