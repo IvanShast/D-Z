@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp8
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Queue<int> buySums = new Queue<int>();
+            int sum = 0;
+
+            FillTheQueue(ref buySums);
+
+            while(buySums.Count > 0)
+            {
+                Console.WriteLine("У клиента - " + buySums.Peek() + " денег");
+                sum += buySums.Dequeue();
+                Console.WriteLine("На балансе магазина - " + sum);
+                Console.ReadKey();
+                Console.Clear();
+            }
+        }
+
+        static void FillTheQueue(ref Queue<int> buySums)
+        {
+            buySums = new Queue<int>();
+            buySums.Enqueue(36);
+            buySums.Enqueue(456);
+            buySums.Enqueue(567);
+            buySums.Enqueue(34);
+            buySums.Enqueue(8);
+            buySums.Enqueue(89);
+            buySums.Enqueue(123);
+            buySums.Enqueue(45);
+            buySums.Enqueue(7);
+            buySums.Enqueue(789);
+            buySums.Enqueue(465);
+            buySums.Enqueue(34); 
+            buySums.Enqueue(573);
+        }
+    }
+}
