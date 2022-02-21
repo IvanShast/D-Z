@@ -1,0 +1,56 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp8
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> numbers = new List<int>();
+            bool cycleOn = true;
+            
+
+            while (cycleOn)
+            {
+                int sum = 0;
+                string userInput;
+                Console.WriteLine("Введите число:");
+                userInput = Console.ReadLine();
+
+                switch (userInput)
+                {
+                    case "sum":
+                        CalculateSum(ref numbers, ref sum);
+                        break;
+                    case "exit":
+                        cycleOn = false;
+                        break;
+                    default:
+                        FillList(ref numbers, ref userInput);
+                        break;
+                }
+            }
+        }
+
+        static void FillList(ref List<int> numbers, ref string userInput)
+        {
+            int number;
+            int.TryParse(userInput, out number);
+            numbers.Add(number);
+        }
+
+        static void CalculateSum(ref List<int> numbers, ref int sum)
+        {
+            for (int i = 0; i < numbers.Count; i++)
+            {
+                sum += numbers[i];
+            }
+            Console.WriteLine(sum);
+        }
+
+    }
+}
