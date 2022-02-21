@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp8
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Dictionary<string, string> dictionary = new Dictionary<string, string>();
+            CreateDictionary(ref dictionary);
+            while (true)
+            {
+                string key;
+                SearchKey(out key);
+
+                if (dictionary.ContainsKey(key))
+                {
+                    Console.WriteLine(dictionary[key]);
+                }
+                else
+                {
+                    Console.WriteLine("такого слова нет в словаре");
+                }
+            }
+        }
+
+        static void CreateDictionary(ref Dictionary<string, string> dictionary)
+        {
+            dictionary = new Dictionary<string, string>();
+            dictionary.Add("жабры", "Органы дыхания рыб и некоторых других водных животных");
+            dictionary.Add("ибис", "Птица южных стран отряда голенастых с оголёнными местами на голове и горле");
+            dictionary.Add("лаваш", "На юге, в Средней Азии: белый хлеб в виде большой плоской лепёшки.");
+            dictionary.Add("сабля", "Рубящее и колющее оружие с длинным изогнутым клинком");
+        }
+
+        static void SearchKey(out string key)
+        {
+            Console.WriteLine("Введите слово: ");
+            key = Console.ReadLine();
+        }
+    }
+}
