@@ -1,0 +1,65 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp8
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Dictionary<string, string> dossier = new Dictionary<string, string>();
+
+            bool cycleOn = true;
+
+            while (cycleOn)
+            {
+
+                Console.WriteLine("1. Добавить досье\n2. Вывести все досье\n3. Удалить досье\n4. Выйти из программы.\n");
+                string userInput = Console.ReadLine();
+                switch (userInput)
+                {
+                    case "1":
+                        AddDossier(dossier);
+                        break;
+                    case "2":
+                        OutputDossier(dossier);
+                        break;
+                    case "3":
+                        DeleteDossier(dossier);
+                        break;
+                    case "4":
+                        cycleOn = false;
+                        break;
+                }
+                Console.ReadKey();
+                Console.Clear();
+            }
+        }
+
+        static void AddDossier(Dictionary<string, string> dossier)
+        {
+            Console.WriteLine("Введите фамилию и должность: ");
+            string surname = Console.ReadLine();
+            string post = Console.ReadLine();
+            dossier.Add(surname, post);
+        }
+
+        static void OutputDossier(Dictionary<string, string> dossier)
+        {
+            foreach (var dossi in dossier)
+            {
+                Console.WriteLine("Фамилия - " + dossi.Key + "  Должность - " + dossi.Value);
+            }
+        }
+
+        static void DeleteDossier(Dictionary<string, string> dossier)
+        {
+            Console.WriteLine("Введите фамилию что бы уволить: ");
+            string surname = Console.ReadLine();
+            dossier.Remove(surname);
+        }
+    }
+}
