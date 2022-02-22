@@ -11,12 +11,12 @@ namespace ConsoleApp8
         static void Main(string[] args)
         {
             List<int> numbers = new List<int>();
-            bool cycleOn = true;
-            
+            bool doCycleOn = true;
 
-            while (cycleOn)
+
+            while (doCycleOn)
             {
-                int sum = 0;
+                
                 string userInput;
                 Console.WriteLine("Введите число:");
                 userInput = Console.ReadLine();
@@ -24,26 +24,27 @@ namespace ConsoleApp8
                 switch (userInput)
                 {
                     case "sum":
-                        CalculateSum(ref numbers, ref sum);
+                        int sum = 0;
+                        CalculateSum(numbers, sum);
                         break;
                     case "exit":
-                        cycleOn = false;
+                        doCycleOn = false;
                         break;
                     default:
-                        FillList(ref numbers, ref userInput);
+                        FillList(numbers, userInput);
                         break;
                 }
             }
         }
 
-        static void FillList(ref List<int> numbers, ref string userInput)
+        static void FillList(List<int> numbers,string userInput)
         {
             int number;
             int.TryParse(userInput, out number);
             numbers.Add(number);
         }
 
-        static void CalculateSum(ref List<int> numbers, ref int sum)
+        static void CalculateSum(List<int> numbers,int sum)
         {
             for (int i = 0; i < numbers.Count; i++)
             {
