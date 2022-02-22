@@ -11,11 +11,17 @@ namespace ConsoleApp8
         static void Main(string[] args)
         {
             Queue<int> buySums = new Queue<int>();
+
+            FillQueue(ref buySums);
+
+            Sell(ref buySums);
+        }
+
+        static void Sell(ref Queue<int> buySums)
+        {
             int sum = 0;
 
-            FillTheQueue(ref buySums);
-
-            while(buySums.Count > 0)
+            while (buySums.Count > 0)
             {
                 Console.WriteLine("У клиента - " + buySums.Peek() + " денег");
                 sum += buySums.Dequeue();
@@ -25,9 +31,8 @@ namespace ConsoleApp8
             }
         }
 
-        static void FillTheQueue(ref Queue<int> buySums)
+        static void FillQueue(ref Queue<int> buySums)
         {
-            buySums = new Queue<int>();
             buySums.Enqueue(36);
             buySums.Enqueue(456);
             buySums.Enqueue(567);
@@ -39,7 +44,7 @@ namespace ConsoleApp8
             buySums.Enqueue(7);
             buySums.Enqueue(789);
             buySums.Enqueue(465);
-            buySums.Enqueue(34); 
+            buySums.Enqueue(34);
             buySums.Enqueue(573);
         }
     }
