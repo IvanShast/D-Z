@@ -10,7 +10,7 @@ namespace ConsoleApp8
     {
         static void Main(string[] args)
         {
-            Dictionary<string, string> dossier = new Dictionary<string, string>();
+            Dictionary<string, string> dossiers = new Dictionary<string, string>();
 
             bool cycleOn = true;
 
@@ -22,13 +22,13 @@ namespace ConsoleApp8
                 switch (userInput)
                 {
                     case "1":
-                        AddDossier(dossier);
+                        AddDossier(dossiers);
                         break;
                     case "2":
-                        OutputDossier(dossier);
+                        OutputDossier(dossiers);
                         break;
                     case "3":
-                        DeleteDossier(dossier);
+                        DeleteDossier(dossiers);
                         break;
                     case "4":
                         cycleOn = false;
@@ -39,19 +39,26 @@ namespace ConsoleApp8
             }
         }
 
-        static void AddDossier(Dictionary<string, string> dossier)
+        static void AddDossier(Dictionary<string, string> dossiers)
         {
             Console.WriteLine("Введите фамилию и должность: ");
             string surname = Console.ReadLine();
             string post = Console.ReadLine();
-            dossier.Add(surname, post);
+            if (dossiers.ContainsKey(surname))
+            {
+                Console.WriteLine("Такой уже есть");
+            }
+            else
+            {
+                dossiers.Add(surname, post);
+            }
         }
 
-        static void OutputDossier(Dictionary<string, string> dossier)
+        static void OutputDossier(Dictionary<string, string> dossiers)
         {
-            foreach (var dossi in dossier)
+            foreach (var dossier in dossiers)
             {
-                Console.WriteLine("Фамилия - " + dossi.Key + "  Должность - " + dossi.Value);
+                Console.WriteLine("Фамилия - " + dossier.Key + "  Должность - " + dossier.Value);
             }
         }
 
