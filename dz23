@@ -12,12 +12,12 @@ namespace ConsoleApp8
         {
             Queue<int> buySums = new Queue<int>();
 
-            FillQueue(ref buySums);
+            FillQueue(buySums);
 
-            Sell(ref buySums);
+            ServeCustomers(buySums);
         }
 
-        static void Sell(ref Queue<int> buySums)
+        static void ServeCustomers(Queue<int> buySums)
         {
             int sum = 0;
 
@@ -31,7 +31,7 @@ namespace ConsoleApp8
             }
         }
 
-        static void FillQueue(ref Queue<int> buySums)
+        static void FillQueue(Queue<int> buySums)
         {
             buySums.Enqueue(36);
             buySums.Enqueue(456);
