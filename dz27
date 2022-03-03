@@ -10,32 +10,36 @@ namespace ConsoleApp8
     {
         static void Main(string[] args)
         {
+            DrawPlayer drawPlayer = new DrawPlayer();
             Player player = new Player('@', 10, 10);
-            
-            player.DrawPlayer();
+
+            drawPlayer.Draw(player.XPosition, player.YPosition, player.DrawPlayer);
+        }
+    }
+
+    class DrawPlayer
+    {
+        public void Draw(int x, int y, char player)
+        {
+            Console.SetCursorPosition(x, y);
+            Console.WriteLine(player);
+
+            Console.ReadKey();
+            Console.Clear();
         }
     }
 
     class Player
     {
-        private char _player;
-        private int _xPosition;
-        private int _yPosition;
+        public char DrawPlayer { get; private set; }
+        public int XPosition { get; private set; }
+        public int YPosition { get; private set; }
 
         public Player(char player, int xPosition, int yPosition)
         {
-            _player = player;
-            _xPosition = xPosition;
-            _yPosition = yPosition;
-        }
-
-        public void DrawPlayer()
-        {
-            Console.SetCursorPosition(_xPosition, _yPosition);
-            Console.Write(_player);
-
-            Console.ReadKey();
-            Console.Clear();
+            DrawPlayer = player;
+            XPosition = xPosition;
+            YPosition = yPosition;
         }
     }
 }
