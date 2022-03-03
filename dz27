@@ -10,14 +10,14 @@ namespace ConsoleApp8
     {
         static void Main(string[] args)
         {
-            DrawPlayer drawPlayer = new DrawPlayer();
+            Renderer drawPlayer = new Renderer();
             Player player = new Player('@', 10, 10);
 
-            drawPlayer.Draw(player.XPosition, player.YPosition, player.DrawPlayer);
+            drawPlayer.Draw(player.XPosition, player.YPosition, player.DrawingSymbol);
         }
     }
 
-    class DrawPlayer
+    class Renderer
     {
         public void Draw(int x, int y, char player)
         {
@@ -31,13 +31,13 @@ namespace ConsoleApp8
 
     class Player
     {
-        public char DrawPlayer { get; private set; }
+        public char DrawingSymbol { get; private set; }
         public int XPosition { get; private set; }
         public int YPosition { get; private set; }
 
         public Player(char player, int xPosition, int yPosition)
         {
-            DrawPlayer = player;
+            DrawingSymbol = player;
             XPosition = xPosition;
             YPosition = yPosition;
         }
