@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp8
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Player player = new Player('@', 10, 10);
+            
+            player.DrawPlayer();
+        }
+    }
+
+    class Player
+    {
+        private char _player;
+        private int _xPosition;
+        private int _yPosition;
+
+        public Player(char player, int xPosition, int yPosition)
+        {
+            _player = player;
+            _xPosition = xPosition;
+            _yPosition = yPosition;
+        }
+
+        public void DrawPlayer()
+        {
+            Console.SetCursorPosition(_xPosition, _yPosition);
+            Console.Write(_player);
+
+            Console.ReadKey();
+            Console.Clear();
+        }
+    }
+}
