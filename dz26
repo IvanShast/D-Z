@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp8
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Player player = new Player(100, 150, 200);
+            
+            player.ShowStats();
+        }
+    }
+
+    class Player
+    {
+        private int _speed;
+        private int _damage;
+        private int _health;
+
+        public Player(int speed, int damage, int health)
+        {
+            _speed = speed;
+            _damage = damage;
+            _health = health;
+        }
+
+        public void ShowStats()
+        {
+            Console.WriteLine("Скорость - " + _speed + " урон - " + _damage + " здоровье - " + _health);
+        }
+    }
+}
