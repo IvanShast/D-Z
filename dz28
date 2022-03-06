@@ -11,6 +11,7 @@ namespace ConsoleApp8
         static void Main(string[] args)
         {
             List<Player> players = new List<Player>();
+
             BasePlayers player = new BasePlayers(players);
 
             bool cycleOn = true;
@@ -43,8 +44,6 @@ namespace ConsoleApp8
         }
     }
 
-    
-
     class BasePlayers
     {
         private List<Player> players = new List<Player>();
@@ -62,6 +61,7 @@ namespace ConsoleApp8
             Console.WriteLine("Введите уровень игрока");
             int level = Convert.ToInt32(Console.ReadLine());
             bool ban = false;
+
             players.Add(new Player(number, name, level, ban));
         }
 
