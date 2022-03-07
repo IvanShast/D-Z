@@ -1,0 +1,96 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp8
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<Product> products = new List<Product>();
+
+            List<Product> product = new List<Product>();
+
+            Seller seller = new Seller(products);
+
+            Player player = new Player(product);
+
+            bool cycleOn = true;
+
+            while (cycleOn)
+            {
+                Console.WriteLine("1 посмотреть продукты  2 посмотреть свои продукты  3 купить  4 выйти");
+                string action = Console.ReadLine();
+                switch (action)
+                {
+                    case "1":
+                        seller.ShowProduct();
+                        break;
+                    case "2":
+                        player.ShowProduct();
+                        break;
+                    case "3":
+                        Console.WriteLine("Введите номер продукта который хотите купить");
+                        int sellNumber = Convert.ToInt32(Console.ReadLine());
+                        products.RemoveAt(sellNumber + 1);
+                        product.Add((Product)sellNumber + 1);
+                        break;
+                    case "4":
+                        cycleOn = false;
+                        break;
+                }
+            }
+        }
+    }
+
+    enum Product
+    {
+        Молоко,
+        Хлеб,
+        Яйца
+    }
+
+
+    class Player
+    {
+        public List<Product> Products = new List<Product>();
+
+        public Player(List<Product> products)
+        {
+            Products = products;
+        }
+
+        public void ShowProduct()
+        {
+            foreach (var product in Products)
+            {
+                Console.WriteLine(product);
+            }
+        }
+    }
+
+    class Seller
+    {
+        public List<Product> Products = new List<Product>();
+
+
+        public Seller(List<Product> products)
+        {
+            Products = products;
+            Products.Add(Product.Молоко);
+            Products.Add(Product.Хлеб);
+            Products.Add(Product.Яйца);
+        }
+
+        public void ShowProduct()
+        {
+            foreach (var product in Products)
+            {
+                Console.WriteLine(product);
+            }
+        }
+    }
+}
